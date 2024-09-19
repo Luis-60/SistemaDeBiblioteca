@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AulaAEDB01.Windows.Helper;
+using Microsoft.Data.SqlClient;
 namespace AulaAEDB01.Windows.Model
 {
     public class Autor
@@ -15,15 +16,45 @@ namespace AulaAEDB01.Windows.Model
 
         public string NomeA { get { return _NomeA; } set { _NomeA = value.Replace("'", ""); } }
 
-        public static List<Autor> ListarTodos()
+            public static List<Autor> ListarTodos()
         {
-            return (from p in DataHelper.ListaAutor select p).ToList();
-        }
+                using (var oCn = DataHelper.Conexao())
+                {
+                    List<Autor> Retorno = new List<Autor>();
+                    string SQL = "select id, Nome from Autor";
+                    SqlCommand comando = new SqlCommand(SQL, oCn);
+                    SqlDataReader oDr = comando.ExecuteReader();
+                    while (oDr.Read())
+                    {
+                        Autor oAutor = new Autor();
+                        oAutor.CodigoA = oDr.GetInt32(oDr.GetOrdinal("id"));
+                        oAutor.NomeA = oDr.GetString(oDr.GetOrdinal("Nome"));
+                        Retorno.Add(oAutor);
+                    }
+                    oDr.Close();
+                    return Retorno;
+                }
+            }
         public static Autor? Seleciona(int CodigoA)
         {
-            return (from p in DataHelper.ListaAutor where p.CodigoA == CodigoA select p).FirstOrDefault();
+            using (var oCn = DataHelper.Conexao())
+            {
+                Autor? Retorno = null;
+                string SQL = $"select id, Nome from Autor where id={CodigoA}";
+                SqlCommand comando = new SqlCommand(SQL, oCn);
+                SqlDataReader oDr = comando.ExecuteReader();
+                while (oDr.Read())
+                {
+                    Retorno = new Autor();
+                    Retorno.CodigoA = oDr.GetInt32(oDr.GetOrdinal("id"));
+                    Retorno.NomeA = oDr.GetString(oDr.GetOrdinal("Nome"));
+
+                }
+                oDr.Close();
+                return Retorno;
+            }
         }
-        public static void IncluirGeneroStaticoA(Autor oAutor)
+        public static void IncluirAutorStatico(Autor oAutor)
         {
             Autor? oAutorSelecionado = Autor.Seleciona(oAutor.CodigoA);
             if (oAutorSelecionado != null)
@@ -38,33 +69,31 @@ namespace AulaAEDB01.Windows.Model
         }
         public void IncluirA()
         {
-            Autor? oAutorSelecionado = Autor.Seleciona(this.CodigoA);
-            if(oAutorSelecionado != null)
+            using (var oCn = DataHelper.Conexao())
             {
-                throw new Exception($"O código informado está sendo utilizado no gênero {oAutorSelecionado.NomeA}");
-            }
-            else
-            {
-                DataHelper.ListaAutor.Add(this);
+                string SQL = $"insert into Autor values('{this.NomeA.Replace("'", "")}')";
+                SqlCommand comando = new SqlCommand(SQL, oCn);
+                comando.ExecuteNonQuery();
             }
 
         }
         public static void Alterar(Autor oAutor)
         {
-            Autor? AutorColecao = Seleciona(oAutor.CodigoA);
-            if (AutorColecao == null)
+            using (var oCn = DataHelper.Conexao())
             {
-                throw new Exception("O objeto informado não existe mais no contexto.");
-            }
-            else
-            {
-                //AutorColecao.CodigoA = oAutor.CodigoA;
-                AutorColecao.NomeA = oAutor.NomeA;
+                string SQL = $"update Autor set Nome='{oAutor.NomeA.Replace("'", "")}' where id={oAutor.CodigoA}";
+                SqlCommand comando = new SqlCommand(SQL, oCn);
+                comando.ExecuteNonQuery();
             }
         }
         public void Excluir()
         {
-            DataHelper.ListaAutor.Remove(this);
+            using (var oCn = DataHelper.Conexao())
+            {
+                string SQL = $"Delete from Autor where id={this.CodigoA}";
+                SqlCommand comando = new SqlCommand(SQL, oCn);
+                comando.ExecuteNonQuery();
+            }
         }
 
     }

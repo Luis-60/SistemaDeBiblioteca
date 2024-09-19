@@ -58,26 +58,26 @@ namespace AulaAEDB01.Windows
         }
         private bool ValidaControles()
         {
-            int CodigoA;
-            if (TxtCodigoA.Text.Trim() == "")
-            {
-                MessageBox.Show("O campo código é de preenchimento obrigatório.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                TxtCodigoA.Focus();
-                return false;
-            }
-            else if (TxtNomeA.Text.Trim() == "")
+            int Codigo;
+            //if (TxtCodigo.Text.Trim() == "")
+            //{
+            //    MessageBox.Show("O campo código é de preenchimento obrigatório.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    TxtCodigo.Focus();
+            //    return false;
+            //}
+            if (TxtNomeA.Text.Trim() == "")
             {
                 MessageBox.Show("O campo nome é de preenchimento obrigatório.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TxtCodigoA.Focus();
                 return false;
             }
 
-            else if (int.TryParse(TxtCodigoA.Text, out CodigoA) == false)
-            {
-                MessageBox.Show("O campo código não é numérico.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                TxtCodigoA.Focus();
-                return false;
-            }
+            //else if (int.TryParse(TxtCodigo.Text, out Codigo) == false)
+            //{
+            //    MessageBox.Show("O campo código não é numérico.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    TxtCodigo.Focus();
+            //    return false;
+            //}
             return true;
         }
         private void LimpaControlesA()
@@ -92,31 +92,36 @@ namespace AulaAEDB01.Windows
         {
             if (IncluirA)
             {
-                //Inclui um autor na lista
+                //Incluir um gênero na Lista
                 if (ValidaControles())
                 {
 
                     Autor oAutor = new Autor
                     {
-                        CodigoA = int.Parse(TxtCodigoA.Text),
+                        //Codigo = int.Parse(TxtCodigo.Text),
                         NomeA = TxtNomeA.Text
+
                     };
+
+                    // Genero.IncluirGeneroStatico(oGenero);
                     try
                     {
                         oAutor.IncluirA();
                         CarregaGrid();
                         LimpaControlesA();
+
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show($"Um erro ocorreu ao incluir o autor: {ex.Message}", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         TxtCodigoA.Focus();
                     }
+
                 }
             }
             else
             {
-                //Altera o Gênero Selecionado
+                //Altera o Autor Selecionado
 
                 Autor oAutor = new Autor
                 {

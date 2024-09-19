@@ -15,10 +15,15 @@ namespace AulaAEDB01.Windows.Helper
        public static List<Genero> ListaGenero { get; set; }
         
        public static List<Autor> ListaAutor { get; set; } 
+        
+       public static List<Editora> ListaEditora {  get; set; }
 
+       public static List<Idioma> ListaIdioma { get; set; }
+
+       public static List<Usuario> ListaUsuario { get; set; }
         public static SqlConnection Conexao()
         {
-            string strconnection = "Data Source=DESKTOP-O2PE7K5\\SQLEXPRESS;Initial Catalog=Livraria;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False";
+            string strconnection = "Data Source=DESKTOP-C9UNTLB\\SQLEXPRESS;Initial Catalog=biblioteca;Integrated Security=True;Connect Timeout=30;TrustServerCertificate=True;"; 
             SqlConnection oCn = new SqlConnection(strconnection);
             oCn.Open();
             return oCn;
