@@ -16,7 +16,9 @@ namespace AulaAEDB01.Windows
 
             MockGenero.CarregaGenero();
             MockAutor.CarregaAutor();
-
+            MockEditora.CarregaEditora();
+            MockIdioma.CarregaIdioma();
+            MockUsuario.CarregaUsuario();
             Application.Run(new FrmMenu());
         }
     }

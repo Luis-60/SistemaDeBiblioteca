@@ -45,7 +45,7 @@
             // BtnSalvarA
             // 
             BtnSalvarA.Location = new Point(35, 105);
-            BtnSalvarA.Name = "btnSalvarA";
+            BtnSalvarA.Name = "BtnSalvarA";
             BtnSalvarA.Size = new Size(156, 34);
             BtnSalvarA.TabIndex = 0;
             BtnSalvarA.Text = "&Salvar";
@@ -110,6 +110,7 @@
             // 
             // TxtCodigoA
             // 
+            TxtCodigoA.Enabled = false;
             TxtCodigoA.Location = new Point(35, 54);
             TxtCodigoA.MaxLength = 4;
             TxtCodigoA.Name = "TxtCodigoA";
