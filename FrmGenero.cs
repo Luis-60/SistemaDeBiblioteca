@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace AulaAEDB01.Windows
 {
+    //Criando classe Gênero
     public partial class FrmGenero : Form
     {
         ToolStripMenuItem _mnu;
@@ -78,6 +79,8 @@ namespace AulaAEDB01.Windows
             //}
             return true;
         }
+        //Verifica se o campo foi preenchido obrigatóriamente
+        
         private void LimpaControles()
         {
             TxtCodigo.Text = "";
