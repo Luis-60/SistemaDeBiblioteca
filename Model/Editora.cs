@@ -35,12 +35,12 @@ namespace AulaAEDB01.Windows.Model
                 return Retorno;
             }
         }
-        public static Editora? Seleciona(int CodigoA)
+        public static Editora? Seleciona(int CodigoE)
         {
             using (var oCn = DataHelper.Conexao())
             {
                 Editora? Retorno = null;
-                string SQL = $"select id, Nome from Editora where id={CodigoA}";
+                string SQL = $"select id, Nome from Editora where id={CodigoE}";
                 SqlCommand comando = new SqlCommand(SQL, oCn);
                 SqlDataReader oDr = comando.ExecuteReader();
                 while (oDr.Read())

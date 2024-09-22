@@ -11,7 +11,7 @@
         "projectName": "AulaAEDB01.Windows",
         "projectPath": "C:\\Users\\Luis\\source\\repos\\SistemaDeBiblioteca\\AulaAEDB01.Windows.csproj",
         "packagesPath": "C:\\Users\\Luis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Luis\\Source\\Repos\\SistemaDeBiblioteca\\obj\\",
+        "outputPath": "C:\\Users\\Luis\\source\\repos\\SistemaDeBiblioteca\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Luis\\AppData\\Roaming\\NuGet\\NuGet.Config",
