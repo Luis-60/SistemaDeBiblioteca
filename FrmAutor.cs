@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AulaAEDB01.Windows.Model;
-using AulaAEDB01.Windows.Mock;
 
 namespace AulaAEDB01.Windows
 {

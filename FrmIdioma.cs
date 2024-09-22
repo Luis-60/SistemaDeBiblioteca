@@ -46,7 +46,7 @@ namespace AulaAEDB01.Windows
 
         private void FrmIdioma_Activated(object sender, EventArgs e)
         {
-            ((FrmMenu)this.MdiParent).LblDisplay.Text = "Cadastro de Gêneros";
+            ((FrmMenu)this.MdiParent).LblDisplay.Text = "Cadastro de Idioma";
         }
 
         private void BtnFecharI_Click(object sender, EventArgs e)
@@ -65,7 +65,7 @@ namespace AulaAEDB01.Windows
             //}
             if (TxtNomeI.Text.Trim() == "")
             {
-                MessageBox.Show("O campo NomeI é de preenchimento obrigatório.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("O campo Nome é de preenchimento obrigatório.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TxtCodigoI.Focus();
                 return false;
             }
@@ -118,7 +118,7 @@ namespace AulaAEDB01.Windows
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Um erro ocorreu ao incluir o gênero: {ex.Message}", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"Um erro ocorreu ao incluir o idioma: {ex.Message}", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         TxtCodigoI.Focus();
                     }
 
@@ -145,7 +145,7 @@ namespace AulaAEDB01.Windows
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Um erro ocorreu ao alterar o gênero: {ex.Message}", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Um erro ocorreu ao alterar o idioma: {ex.Message}", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TxtCodigoI.Focus();
                 }
             }
@@ -181,6 +181,9 @@ namespace AulaAEDB01.Windows
             }
         }
 
-       
+        private void LblNomeI_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

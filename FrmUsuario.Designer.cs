@@ -30,16 +30,16 @@
         {
             LblCodigoI = new Label();
             TxtCodigoU = new TextBox();
-            GrdItensI = new DataGridView();
+            GrdItensU = new DataGridView();
             CodigoU = new DataGridViewTextBoxColumn();
             NomeU = new DataGridViewTextBoxColumn();
-            Senha = new DataGridViewTextBoxColumn();
-            Email = new DataGridViewTextBoxColumn();
-            Tipo = new DataGridViewTextBoxColumn();
+            SenhaU = new DataGridViewTextBoxColumn();
+            EmailU = new DataGridViewTextBoxColumn();
+            TipoU = new DataGridViewTextBoxColumn();
             BtnAlterarU = new DataGridViewButtonColumn();
             BtnExcluirU = new DataGridViewButtonColumn();
-            BtnFecharI = new Button();
-            BtnSalvarI = new Button();
+            BtnFecharU = new Button();
+            BtnSalvarU = new Button();
             CboTipo = new ComboBox();
             label1 = new Label();
             LblNomeI = new Label();
@@ -48,7 +48,7 @@
             TxtEmail = new TextBox();
             label3 = new Label();
             TxtSenha = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)GrdItensI).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)GrdItensU).BeginInit();
             SuspendLayout();
             // 
             // LblCodigoI
@@ -69,19 +69,19 @@
             TxtCodigoU.Size = new Size(125, 27);
             TxtCodigoU.TabIndex = 24;
             // 
-            // GrdItensI
+            // GrdItensU
             // 
-            GrdItensI.AllowUserToAddRows = false;
-            GrdItensI.AllowUserToDeleteRows = false;
-            GrdItensI.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            GrdItensI.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GrdItensI.Columns.AddRange(new DataGridViewColumn[] { CodigoU, NomeU, Senha, Email, Tipo, BtnAlterarU, BtnExcluirU });
-            GrdItensI.Location = new Point(3, 219);
-            GrdItensI.Name = "GrdItensI";
-            GrdItensI.RowHeadersWidth = 51;
-            GrdItensI.Size = new Size(932, 261);
-            GrdItensI.TabIndex = 23;
-            GrdItensI.CellContentClick += GrdItensI_CellContentClick;
+            GrdItensU.AllowUserToAddRows = false;
+            GrdItensU.AllowUserToDeleteRows = false;
+            GrdItensU.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            GrdItensU.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            GrdItensU.Columns.AddRange(new DataGridViewColumn[] { CodigoU, NomeU, SenhaU, EmailU, TipoU, BtnAlterarU, BtnExcluirU });
+            GrdItensU.Location = new Point(3, 219);
+            GrdItensU.Name = "GrdItensU";
+            GrdItensU.RowHeadersWidth = 51;
+            GrdItensU.Size = new Size(932, 261);
+            GrdItensU.TabIndex = 23;
+            GrdItensU.CellClick += GrdItensU_CellClick;
             // 
             // CodigoU
             // 
@@ -99,28 +99,29 @@
             NomeU.Name = "NomeU";
             NomeU.Width = 125;
             // 
-            // Senha
+            // SenhaU
             // 
-            Senha.DataPropertyName = "Senha";
-            Senha.HeaderText = "Senha";
-            Senha.MinimumWidth = 6;
-            Senha.Name = "Senha";
-            Senha.Width = 125;
+            SenhaU.DataPropertyName = "SenhaU";
+            SenhaU.HeaderText = "Senha";
+            SenhaU.MinimumWidth = 6;
+            SenhaU.Name = "SenhaU";
+            SenhaU.Width = 125;
             // 
-            // Email
+            // EmailU
             // 
-            Email.DataPropertyName = "Email";
-            Email.HeaderText = "Email";
-            Email.MinimumWidth = 6;
-            Email.Name = "Email";
-            Email.Width = 125;
+            EmailU.DataPropertyName = "EmailU";
+            EmailU.HeaderText = "Email";
+            EmailU.MinimumWidth = 6;
+            EmailU.Name = "EmailU";
+            EmailU.Width = 125;
             // 
-            // Tipo
+            // TipoU
             // 
-            Tipo.HeaderText = "Tipo";
-            Tipo.MinimumWidth = 6;
-            Tipo.Name = "Tipo";
-            Tipo.Width = 125;
+            TipoU.DataPropertyName = "TipoU";
+            TipoU.HeaderText = "Tipo";
+            TipoU.MinimumWidth = 6;
+            TipoU.Name = "TipoU";
+            TipoU.Width = 125;
             // 
             // BtnAlterarU
             // 
@@ -138,23 +139,23 @@
             BtnExcluirU.Name = "BtnExcluirU";
             BtnExcluirU.Width = 125;
             // 
-            // BtnFecharI
+            // BtnFecharU
             // 
-            BtnFecharI.Location = new Point(770, 80);
-            BtnFecharI.Name = "BtnFecharI";
-            BtnFecharI.Size = new Size(156, 34);
-            BtnFecharI.TabIndex = 22;
-            BtnFecharI.Text = "&Fechar";
-            BtnFecharI.UseVisualStyleBackColor = true;
+            BtnFecharU.Location = new Point(770, 80);
+            BtnFecharU.Name = "BtnFecharU";
+            BtnFecharU.Size = new Size(156, 34);
+            BtnFecharU.TabIndex = 22;
+            BtnFecharU.Text = "&Fechar";
+            BtnFecharU.UseVisualStyleBackColor = true;
             // 
-            // BtnSalvarI
+            // BtnSalvarU
             // 
-            BtnSalvarI.Location = new Point(770, 23);
-            BtnSalvarI.Name = "BtnSalvarI";
-            BtnSalvarI.Size = new Size(156, 34);
-            BtnSalvarI.TabIndex = 21;
-            BtnSalvarI.Text = "&Salvar";
-            BtnSalvarI.UseVisualStyleBackColor = true;
+            BtnSalvarU.Location = new Point(770, 23);
+            BtnSalvarU.Name = "BtnSalvarU";
+            BtnSalvarU.Size = new Size(156, 34);
+            BtnSalvarU.TabIndex = 21;
+            BtnSalvarU.Text = "&Salvar";
+            BtnSalvarU.UseVisualStyleBackColor = true;
             // 
             // CboTipo
             // 
@@ -239,13 +240,15 @@
             Controls.Add(LblCodigoI);
             Controls.Add(TxtNomeU);
             Controls.Add(TxtCodigoU);
-            Controls.Add(GrdItensI);
-            Controls.Add(BtnFecharI);
-            Controls.Add(BtnSalvarI);
+            Controls.Add(GrdItensU);
+            Controls.Add(BtnFecharU);
+            Controls.Add(BtnSalvarU);
             Name = "FrmUsuario";
             Text = "FrmUsuario";
+            Activated += FrmUsuario_Activated;
+            FormClosed += FrmUsuario_FormClosed;
             Load += FrmUsuario_Load;
-            ((System.ComponentModel.ISupportInitialize)GrdItensI).EndInit();
+            ((System.ComponentModel.ISupportInitialize)GrdItensU).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -253,9 +256,9 @@
         #endregion
         private Label LblCodigoI;
         private TextBox TxtCodigoU;
-        private DataGridView GrdItensI;
-        private Button BtnFecharI;
-        private Button BtnSalvarI;
+        private DataGridView GrdItensU;
+        private Button BtnFecharU;
+        private Button BtnSalvarU;
         private ComboBox CboTipo;
         private Label label1;
         private Label LblNomeI;
@@ -266,9 +269,9 @@
         private TextBox TxtSenha;
         private DataGridViewTextBoxColumn CodigoU;
         private DataGridViewTextBoxColumn NomeU;
-        private DataGridViewTextBoxColumn Senha;
-        private DataGridViewTextBoxColumn Email;
-        private DataGridViewTextBoxColumn Tipo;
+        private DataGridViewTextBoxColumn SenhaU;
+        private DataGridViewTextBoxColumn EmailU;
+        private DataGridViewTextBoxColumn TipoU;
         private DataGridViewButtonColumn BtnAlterarU;
         private DataGridViewButtonColumn BtnExcluirU;
     }

@@ -50,6 +50,7 @@
             LblNomeI.Size = new Size(50, 20);
             LblNomeI.TabIndex = 20;
             LblNomeI.Text = "Nome";
+            LblNomeI.Click += LblNomeI_Click;
             // 
             // LblCodigoI
             // 

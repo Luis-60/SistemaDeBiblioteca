@@ -98,5 +98,19 @@ namespace AulaAEDB01.Windows
             MnSUsuario.Enabled = false;
             oFrmUsuario.Show();
         }
+
+        private void MnSLivro_Click(object sender, EventArgs e)
+        {
+            MnuLivro_Click(sender, e);
+        }
+
+        private void MnuLivro_Click(object sender, EventArgs e)
+        {
+            FrmLivro oFrmLivro = new FrmLivro(MnuLivro, MnSLivro);
+            oFrmLivro.MdiParent = this;
+            MnuLivro.Enabled = false;
+            MnSLivro.Enabled = false;
+            oFrmLivro.Show();
+        }
     }
 }

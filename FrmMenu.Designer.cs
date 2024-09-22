@@ -41,6 +41,8 @@
             toolStripMenuItem8 = new ToolStripSeparator();
             MnuLivro = new ToolStripMenuItem();
             toolStripMenuItem5 = new ToolStripSeparator();
+            MnuUsuario = new ToolStripMenuItem();
+            toolStripMenuItem10 = new ToolStripSeparator();
             MnuSair = new ToolStripMenuItem();
             aulasToolStripMenuItem = new ToolStripMenuItem();
             MnuAula01 = new ToolStripMenuItem();
@@ -54,12 +56,10 @@
             MnSIdioma = new ToolStripMenuItem();
             toolStripMenuItem9 = new ToolStripSeparator();
             MnSLivro = new ToolStripMenuItem();
-            statusStrip1 = new StatusStrip();
-            LblDisplay = new ToolStripStatusLabel();
-            MnuUsuario = new ToolStripMenuItem();
-            toolStripMenuItem10 = new ToolStripSeparator();
             toolStripMenuItem11 = new ToolStripSeparator();
             MnSUsuario = new ToolStripMenuItem();
+            statusStrip1 = new StatusStrip();
+            LblDisplay = new ToolStripStatusLabel();
             menuStrip1.SuspendLayout();
             MnuSuspenso.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -135,11 +135,24 @@
             MnuLivro.Name = "MnuLivro";
             MnuLivro.Size = new Size(224, 26);
             MnuLivro.Text = "&Livro";
+            MnuLivro.Click += MnuLivro_Click;
             // 
             // toolStripMenuItem5
             // 
             toolStripMenuItem5.Name = "toolStripMenuItem5";
             toolStripMenuItem5.Size = new Size(221, 6);
+            // 
+            // MnuUsuario
+            // 
+            MnuUsuario.Name = "MnuUsuario";
+            MnuUsuario.Size = new Size(224, 26);
+            MnuUsuario.Text = "&Usuário";
+            MnuUsuario.Click += MnuUsuario_Click;
+            // 
+            // toolStripMenuItem10
+            // 
+            toolStripMenuItem10.Name = "toolStripMenuItem10";
+            toolStripMenuItem10.Size = new Size(221, 6);
             // 
             // MnuSair
             // 
@@ -222,6 +235,17 @@
             MnSLivro.Size = new Size(128, 24);
             MnSLivro.Text = "&Livro";
             // 
+            // toolStripMenuItem11
+            // 
+            toolStripMenuItem11.Name = "toolStripMenuItem11";
+            toolStripMenuItem11.Size = new Size(125, 6);
+            // 
+            // MnSUsuario
+            // 
+            MnSUsuario.Name = "MnSUsuario";
+            MnSUsuario.Size = new Size(128, 24);
+            MnSUsuario.Text = "&Usuario";
+            // 
             // statusStrip1
             // 
             statusStrip1.ImageScalingSize = new Size(20, 20);
@@ -239,29 +263,6 @@
             LblDisplay.DisplayStyle = ToolStripItemDisplayStyle.Text;
             LblDisplay.Name = "LblDisplay";
             LblDisplay.Size = new Size(300, 18);
-            // 
-            // MnuUsuario
-            // 
-            MnuUsuario.Name = "MnuUsuario";
-            MnuUsuario.Size = new Size(224, 26);
-            MnuUsuario.Text = "&Usuário";
-            MnuUsuario.Click += MnuUsuario_Click;
-            // 
-            // toolStripMenuItem10
-            // 
-            toolStripMenuItem10.Name = "toolStripMenuItem10";
-            toolStripMenuItem10.Size = new Size(221, 6);
-            // 
-            // toolStripMenuItem11
-            // 
-            toolStripMenuItem11.Name = "toolStripMenuItem11";
-            toolStripMenuItem11.Size = new Size(125, 6);
-            // 
-            // MnSUsuario
-            // 
-            MnSUsuario.Name = "MnSUsuario";
-            MnSUsuario.Size = new Size(128, 24);
-            MnSUsuario.Text = "&Usuario";
             // 
             // FrmMenu
             // 

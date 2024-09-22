@@ -1,4 +1,4 @@
-using AulaAEDB01.Windows.Mock;
+
 
 namespace AulaAEDB01.Windows
 {
@@ -14,11 +14,7 @@ namespace AulaAEDB01.Windows
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            MockGenero.CarregaGenero();
-            MockAutor.CarregaAutor();
-            MockEditora.CarregaEditora();
-            MockIdioma.CarregaIdioma();
-            MockUsuario.CarregaUsuario();
+
             Application.Run(new FrmMenu());
         }
     }
