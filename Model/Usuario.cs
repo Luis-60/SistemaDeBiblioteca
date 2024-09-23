@@ -2,7 +2,9 @@
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,6 +17,10 @@ namespace AulaAEDB01.Windows.Model
         private string _EmailU;
         private string _SenhaU;
         private string _TipoU;
+        private string _SenhaL;
+        private string _User;
+        private string _TipoL;
+        private string _Sessao;
 
         public int CodigoU { get { return _CodigoU; } set { _CodigoU = value; } }
 
@@ -22,6 +28,10 @@ namespace AulaAEDB01.Windows.Model
         public string EmailU { get { return _EmailU; } set { _EmailU = value.Replace("'", ""); } }
         public string TipoU { get { return _TipoU; } set { _TipoU = value.Replace("'", ""); } }
         public string SenhaU { get { return _SenhaU; } set { _SenhaU = value.Replace("'", ""); } }
+        public string SenhaL { get { return _SenhaL; } set { _SenhaL = value.Replace("'", ""); } }
+        public string User { get { return _User; } set { _User = value.Replace("'", ""); } }
+        public string TipoL { get { return _TipoL; } set { _TipoL = value.Replace("'", ""); } }
+        public static Usuario? UsuarioLogado { get; set; }
 
 
         public static List<Usuario> ListarTodos()
@@ -29,7 +39,7 @@ namespace AulaAEDB01.Windows.Model
             using (var oCn = DataHelper.Conexao())
             {
                 List<Usuario> Retorno = new List<Usuario>();
-                string SQL = "select * from Usuario";
+                string SQL = "select id, Nome, Email, Tipo, Senha from Usuario";
                 SqlCommand comando = new SqlCommand(SQL, oCn);
                 SqlDataReader oDr = comando.ExecuteReader();
                 while (oDr.Read())
@@ -112,5 +122,58 @@ namespace AulaAEDB01.Windows.Model
                 comando.ExecuteNonQuery();
             }
         }
+        public static bool VerificaUsuarioSenha(string usuarioDigitado, string senhaDigitada, string Tipo)
+        {
+            using (var oCn = DataHelper.Conexao())
+            {
+                string SQL = "SELECT id, Nome, Email, Tipo, Senha FROM Usuario WHERE Nome = @Nome AND Senha = @Senha";
+                SqlCommand comando = new SqlCommand(SQL, oCn);
+                comando.Parameters.AddWithValue("@Nome", usuarioDigitado);
+                comando.Parameters.AddWithValue("@Senha", senhaDigitada);
+                comando.Parameters.AddWithValue("@Tipo", Tipo);
+
+                SqlDataReader oDr = comando.ExecuteReader();
+                bool usuarioValido = false;
+
+                if (oDr.Read())
+                {
+                    usuarioValido = true;
+                }
+
+                oDr.Close();
+                return usuarioValido;
+            }
+        }
+
+        public static Usuario? MetodoL(string User)
+        {
+            using (var oCn = DataHelper.Conexao())
+            {
+                Usuario? Retorno = null;
+                string SQL = "SELECT Nome, Senha, Tipo from Usuario WHERE Nome = @Nome";
+                SqlCommand comando = new SqlCommand(SQL, oCn);
+                comando.Parameters.AddWithValue("@Nome", User);
+                SqlDataReader oDr = comando.ExecuteReader();
+                while (oDr.Read())
+                {
+                    Retorno = new Usuario
+                    {
+
+                        NomeU = oDr.GetString(oDr.GetOrdinal("Nome")),
+                        SenhaL = oDr.GetString(oDr.GetOrdinal("Senha")),
+                        TipoL = oDr.GetString(oDr.GetOrdinal("Tipo")),
+
+                    };
+                }
+                oDr.Close();
+                return Retorno;
+
+
+
+            }
+        }
+
+
+
     }
 }
