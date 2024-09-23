@@ -21,6 +21,12 @@ namespace AulaAEDB01.Windows.Helper
        public static List<Idioma> ListaIdioma { get; set; }
 
        public static List<Usuario> ListaUsuario { get; set; }
+
+       public static List<Livro> ListaLivro { get; set; }
+
+       public static List<Tipo> ListaTipo { get; set; }
+    
+       public static List<AutorLivro> ListaAutorLivro { get; set; }
         public static SqlConnection Conexao()
         {
             string strconnection = "Data Source=DESKTOP-C9UNTLB\\SQLEXPRESS;Initial Catalog=biblioteca;Integrated Security=True;Connect Timeout=30;TrustServerCertificate=True;"; 
