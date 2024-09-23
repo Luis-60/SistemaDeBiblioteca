@@ -11,7 +11,6 @@ using System.Windows.Forms;
 
 namespace AulaAEDB01.Windows
 {
-    //Criando a classe Editora
     public partial class FrmEditora : Form
     {
         ToolStripMenuItem _mnu;
@@ -64,7 +63,6 @@ namespace AulaAEDB01.Windows
                 return false;
             }
             return true;
-            //Condição para preenchimento obrigatório do campo
         }
 
         private void LimpaControles()

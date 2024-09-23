@@ -34,12 +34,14 @@
             TxtCodigoL = new TextBox();
             GrdItensL = new DataGridView();
             CodigoL = new DataGridViewTextBoxColumn();
+            Idioma = new DataGridViewTextBoxColumn();
+            Genero = new DataGridViewTextBoxColumn();
+            Editora = new DataGridViewTextBoxColumn();
+            ISBN = new DataGridViewTextBoxColumn();
             NomeL = new DataGridViewTextBoxColumn();
             Edição = new DataGridViewTextBoxColumn();
             Descrição = new DataGridViewTextBoxColumn();
-            Editora = new DataGridViewTextBoxColumn();
             Autor = new DataGridViewTextBoxColumn();
-            Idioma = new DataGridViewTextBoxColumn();
             QtdPag = new DataGridViewTextBoxColumn();
             BtnAlterarL = new DataGridViewButtonColumn();
             BtnExcluirL = new DataGridViewButtonColumn();
@@ -105,12 +107,13 @@
             GrdItensL.AllowUserToDeleteRows = false;
             GrdItensL.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             GrdItensL.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GrdItensL.Columns.AddRange(new DataGridViewColumn[] { CodigoL, NomeL, Edição, Descrição, Editora, Autor, Idioma, QtdPag, BtnAlterarL, BtnExcluirL });
+            GrdItensL.Columns.AddRange(new DataGridViewColumn[] { CodigoL, Idioma, Genero, Editora, ISBN, NomeL, Edição, Descrição, Autor, QtdPag, BtnAlterarL, BtnExcluirL });
             GrdItensL.Location = new Point(403, 1);
             GrdItensL.Name = "GrdItensL";
             GrdItensL.RowHeadersWidth = 51;
             GrdItensL.Size = new Size(1305, 705);
             GrdItensL.TabIndex = 23;
+            GrdItensL.CellContentClick += GrdItensL_CellClick;
             // 
             // CodigoL
             // 
@@ -119,6 +122,38 @@
             CodigoL.MinimumWidth = 6;
             CodigoL.Name = "CodigoL";
             CodigoL.Width = 125;
+            // 
+            // Idioma
+            // 
+            Idioma.DataPropertyName = "CodigoI";
+            Idioma.HeaderText = "Idioma";
+            Idioma.MinimumWidth = 6;
+            Idioma.Name = "Idioma";
+            Idioma.Width = 125;
+            // 
+            // Genero
+            // 
+            Genero.DataPropertyName = "Codigo";
+            Genero.HeaderText = "Genero";
+            Genero.MinimumWidth = 6;
+            Genero.Name = "Genero";
+            Genero.Width = 125;
+            // 
+            // Editora
+            // 
+            Editora.DataPropertyName = "CodigoE";
+            Editora.HeaderText = "Editora";
+            Editora.MinimumWidth = 6;
+            Editora.Name = "Editora";
+            Editora.Width = 125;
+            // 
+            // ISBN
+            // 
+            ISBN.DataPropertyName = "ISBN";
+            ISBN.HeaderText = "ISBN";
+            ISBN.MinimumWidth = 6;
+            ISBN.Name = "ISBN";
+            ISBN.Width = 125;
             // 
             // NomeL
             // 
@@ -144,14 +179,6 @@
             Descrição.Name = "Descrição";
             Descrição.Width = 125;
             // 
-            // Editora
-            // 
-            Editora.DataPropertyName = "Editora";
-            Editora.HeaderText = "Editora";
-            Editora.MinimumWidth = 6;
-            Editora.Name = "Editora";
-            Editora.Width = 125;
-            // 
             // Autor
             // 
             Autor.DataPropertyName = "Autor";
@@ -159,14 +186,6 @@
             Autor.MinimumWidth = 6;
             Autor.Name = "Autor";
             Autor.Width = 125;
-            // 
-            // Idioma
-            // 
-            Idioma.DataPropertyName = "Idioma";
-            Idioma.HeaderText = "Idioma";
-            Idioma.MinimumWidth = 6;
-            Idioma.Name = "Idioma";
-            Idioma.Width = 125;
             // 
             // QtdPag
             // 
@@ -413,17 +432,19 @@
         private TextBox TxtPag;
         private Label label7;
         private ComboBox CboGenero;
+        private BindingSource editoraBindingSource;
+        private BindingSource autorBindingSource;
         private DataGridViewTextBoxColumn CodigoL;
+        private DataGridViewTextBoxColumn Idioma;
+        private DataGridViewTextBoxColumn Genero;
+        private DataGridViewTextBoxColumn Editora;
+        private DataGridViewTextBoxColumn ISBN;
         private DataGridViewTextBoxColumn NomeL;
         private DataGridViewTextBoxColumn Edição;
         private DataGridViewTextBoxColumn Descrição;
-        private DataGridViewTextBoxColumn Editora;
         private DataGridViewTextBoxColumn Autor;
-        private DataGridViewTextBoxColumn Idioma;
         private DataGridViewTextBoxColumn QtdPag;
         private DataGridViewButtonColumn BtnAlterarL;
         private DataGridViewButtonColumn BtnExcluirL;
-        private BindingSource editoraBindingSource;
-        private BindingSource autorBindingSource;
     }
 }

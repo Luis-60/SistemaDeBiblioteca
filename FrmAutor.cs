@@ -11,13 +11,12 @@ using AulaAEDB01.Windows.Model;
 
 namespace AulaAEDB01.Windows
 {
-    //criando a classe Autor
+
     public partial class FrmAutor : Form
     {
         ToolStripMenuItem _mnuA;
         ToolStripMenuItem _mnu2A;
-        
-        //Adicionando botão de incluir Autor
+
         private bool IncluirA = true;
         public FrmAutor(ToolStripMenuItem mnuA, ToolStripMenuItem mnu2A)
         {
@@ -45,6 +44,8 @@ namespace AulaAEDB01.Windows
 
         private void FrmAutor_FormClosed_1(object sender, FormClosedEventArgs e)
         {
+            //((FrmMenu)this.MdiParent).MnuGenero.Enabled = true;
+            //((FrmMenu)this.MdiParent).MnSGenero.Enabled = true;
             _mnuA.Enabled = true;
             _mnu2A.Enabled = true;
             ((FrmMenu)this.MdiParent).LblDisplay.Text = "";
@@ -90,7 +91,7 @@ namespace AulaAEDB01.Windows
         {
             if (IncluirA)
             {
-                //Incluir um autor na Lista
+                //Incluir um gênero na Lista
                 if (ValidaControles())
                 {
 
@@ -101,6 +102,7 @@ namespace AulaAEDB01.Windows
 
                     };
 
+                    // Genero.IncluirGeneroStatico(oGenero);
                     try
                     {
                         oAutor.IncluirA();

@@ -1,5 +1,6 @@
 ﻿using AulaAEDB01.Windows.Helper;
 using AulaAEDB01.Windows.Model;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,7 +38,7 @@ namespace AulaAEDB01.Windows
         private void FrmLivro_Load(object sender, EventArgs e)
         {
             CarregaGrid();
-            
+
             CboEditora.DataSource = Model.Editora.ListarTodos();
             CboEditora.ValueMember = "CodigoE";
             CboEditora.DisplayMember = "NomeE";
@@ -136,19 +137,26 @@ namespace AulaAEDB01.Windows
                         NomeL = TxtNomeL.Text,
                         Descricao = TxtDescricao.Text,
                         QtdPag = int.Parse(TxtPag.Text),
-                        Edicao = TxtEdicao.Text,
-                        ISBN = int.Parse(TxtPag.Text)
+                        Edicao = int.Parse(TxtEdicao.Text),
+                        ISBN = TxtISBN.Text,
 
+                        CodigoE = (int)CboEditora.SelectedValue,
+                        CodigoI = (int)CboIdioma.SelectedValue,
+                        Codigo = (int)CboGenero.SelectedValue,
+                        idAutor = (int)CboAutor.SelectedValue  // Captura o ID do autor selecionado
                     };
 
                     // Idioma.IncluirIdiomaStatico(oIdioma);
                     try
                     {
+
                         oLivro.Incluir();
                         CarregaGrid();
                         LimpaControles();
 
+
                     }
+
                     catch (Exception ex)
                     {
                         MessageBox.Show($"Um erro ocorreu ao incluir o livro: {ex.Message}", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -164,8 +172,11 @@ namespace AulaAEDB01.Windows
                 Livro oLivro = new Livro
                 {
                     CodigoL = int.Parse(TxtCodigoL.Text),
-                    NomeL = TxtNomeL.Text
-
+                    NomeL = TxtNomeL.Text,
+                    ISBN = TxtISBN.Text,        // Captura o valor do campo ISBN
+                    Descricao = TxtDescricao.Text,  // Captura o valor do campo Descrição
+                    QtdPag = int.Parse(TxtPag.Text),  // Captura o valor de Páginas
+                    Edicao = int.Parse(TxtEdicao.Text)  // Captura o valor da Edição
 
                 };
                 try
@@ -200,10 +211,16 @@ namespace AulaAEDB01.Windows
                     TxtCodigoL.Text = objSelecionado.CodigoL.ToString();
                     TxtNomeL.Text = objSelecionado.NomeL;
                     TxtCodigoL.Enabled = false;
+                    TxtISBN.Text = objSelecionado.ISBN;
+                    TxtDescricao.Text = objSelecionado.Descricao;
+                    TxtPag.Text = objSelecionado.QtdPag.ToString();
+                    TxtEdicao.Text = objSelecionado.Edicao.ToString();
                     TxtNomeL.Focus();
+
+
                     Incluir = false;
                 }
-                else if (GrdItensL.Columns[e.ColumnIndex].Name == "BtnExcluirI")
+                else if (GrdItensL.Columns[e.ColumnIndex].Name == "BtnExcluirL")
                 {
                     //Clicou no botão excluir.
                     if (MessageBox.Show("Confirme a exclusão.", ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -217,8 +234,7 @@ namespace AulaAEDB01.Windows
 
         private void CboEditora_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
     }
 }
-   
