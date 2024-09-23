@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using Microsoft.Data.SqlClient;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Drawing;
+using Microsoft.VisualBasic.Logging;
 namespace AulaAEDB01.Windows.Helper
 {
     public static class DataHelper
@@ -27,6 +28,7 @@ namespace AulaAEDB01.Windows.Helper
        public static List<Tipo> ListaTipo { get; set; }
     
        public static List<AutorLivro> ListaAutorLivro { get; set; }
+
         public static SqlConnection Conexao()
         {
             string strconnection = "Data Source=DESKTOP-C9UNTLB\\SQLEXPRESS;Initial Catalog=biblioteca;Integrated Security=True;Connect Timeout=30;TrustServerCertificate=True;"; 
