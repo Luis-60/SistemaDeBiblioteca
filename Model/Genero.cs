@@ -28,7 +28,7 @@ namespace AulaAEDB01.Windows.Model
             using (var oCn = DataHelper.Conexao())
             {
                 List<Genero> Retorno = new List<Genero>();
-                string SQL = "select id, Nome from Genero";
+                string SQL = "select * from Genero";
                 SqlCommand comando = new SqlCommand(SQL, oCn);
                 SqlDataReader oDr = comando.ExecuteReader();
                 while (oDr.Read())

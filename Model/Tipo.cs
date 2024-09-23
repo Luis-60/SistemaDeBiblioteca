@@ -24,7 +24,7 @@ namespace AulaAEDB01.Windows.Model
             using (var oCn = DataHelper.Conexao())
             {
                 List<Tipo> Retornar = new List<Tipo>();
-                String Tipo = "select id, Tipo from Tipo";
+                String Tipo = "select * from Tipo";
                 SqlCommand Tipoatt = new SqlCommand(Tipo, oCn);
                 SqlDataReader oTr = Tipoatt.ExecuteReader();
                 while (oTr.Read())

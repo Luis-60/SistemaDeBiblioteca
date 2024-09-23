@@ -29,7 +29,7 @@ namespace AulaAEDB01.Windows.Model
             using (var oCn = DataHelper.Conexao())
             {
                 List<Usuario> Retorno = new List<Usuario>();
-                string SQL = "select id, Nome, Email, Tipo, Senha from Usuario";
+                string SQL = "select * from Usuario";
                 SqlCommand comando = new SqlCommand(SQL, oCn);
                 SqlDataReader oDr = comando.ExecuteReader();
                 while (oDr.Read())
