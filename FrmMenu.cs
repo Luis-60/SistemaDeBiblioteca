@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AulaAEDB01.Windows.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,8 +16,19 @@ namespace AulaAEDB01.Windows
         public FrmMenu()
         {
             InitializeComponent();
-        }
+            Permissoes();
 
+
+        }
+        private void Permissoes()
+        {
+            if (Usuario.UsuarioLogado != null && Usuario.UsuarioLogado.TipoL != "ADM")
+            {
+
+                MnuUsuario.Enabled = false;
+
+            }
+        }
         private void FrmMenu_Load(object sender, EventArgs e)
         {
 
@@ -112,5 +124,15 @@ namespace AulaAEDB01.Windows
             MnSLivro.Enabled = false;
             oFrmLivro.Show();
         }
+        private void Checar()
+        {
+
+
+        }
+        private void FrmMenu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
+
 }

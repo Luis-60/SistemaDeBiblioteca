@@ -147,6 +147,7 @@
             BtnFecharU.TabIndex = 22;
             BtnFecharU.Text = "&Fechar";
             BtnFecharU.UseVisualStyleBackColor = true;
+            BtnFecharU.Click += BtnFecharU_Click;
             // 
             // BtnSalvarU
             // 
@@ -156,6 +157,7 @@
             BtnSalvarU.TabIndex = 21;
             BtnSalvarU.Text = "&Salvar";
             BtnSalvarU.UseVisualStyleBackColor = true;
+            BtnSalvarU.Click += BtnSalvarU_Click;
             // 
             // CboTipo
             // 

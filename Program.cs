@@ -1,5 +1,3 @@
-
-
 namespace AulaAEDB01.Windows
 {
     internal static class Program
@@ -14,8 +12,8 @@ namespace AulaAEDB01.Windows
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-
-            Application.Run(new FrmMenu());
+            //Application.Run(new FrmMenu());
+            Application.Run(new FrmLogIn());
         }
     }
 }

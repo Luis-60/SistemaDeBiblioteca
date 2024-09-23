@@ -198,5 +198,9 @@ namespace AulaAEDB01.Windows
             }
         }
 
+        private void GrdItensU_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
